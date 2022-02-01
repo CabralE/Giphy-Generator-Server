@@ -2,8 +2,11 @@ require("dotenv").config();
 const axios = require('axios').default
 const { PORT = 3000, API_KEY } = process.env;
 const express = require("express");
+const cors = require('cors');
 const app = express();
 const BASE_URL = "http://api.giphy.com/v1/gifs/search" 
+
+app.use(cors())
 
 app.get("/", (req, res) => {
     const options = {
